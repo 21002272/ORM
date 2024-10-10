@@ -5,9 +5,7 @@
 To develop a Django application to store and retrieve data from a Bank database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
-
-![image](https://github.com/user-attachments/assets/d870b904-5c5f-4331-806d-41398ce9a291)
-
+![image](https://github.com/user-attachments/assets/5bb20919-6c84-43b2-bea0-a4a15457c20c)
 
 ## DESIGN STEPS
 
@@ -28,30 +26,28 @@ Execute Django admin and create details for 10 customers.
 admin.py
 ```
 from django.contrib import admin
-from .models import Employee,EmployeeAdmin
-admin.site.register(Employee,EmployeeAdmin)
-
+from .models import Bankloan, BankloanAdmin  
+admin.site.register(Bankloan, BankloanAdmin)
 ```
 models.py
 ```
 from django.db import models
 from django.contrib import admin
-class Employee (models.Model):
-    eid=models.IntegerField(primary_key=True)
-    name=models.CharField(max_length=100)
-    salary=models.IntegerField()
-    age=models.IntegerField()
-    email=models.EmailField()
- 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display=('eid','name','salary','age','email')
+class Bankloan(models.Model):
+    customerid= models.IntegerField(primary_key=True)
+    customerrate = models.IntegerField()
+    age = models.IntegerField()  
+    cust_no = models.IntegerField()
+    customerloan_purpose =models.CharField(max_length=500)
 
+class BankloanAdmin(admin.ModelAdmin):
+    list_display = ('customerid', 'customerrate', 'age', 'cust_no', 'customerloan_purpose')
 
 ```
 
 ## OUTPUT
+![Screenshot 2024-10-10 103934](https://github.com/user-attachments/assets/e7046c15-1e82-4f45-b6c9-9dbfb6fa3e78)
 
-![Screenshot 2024-09-26 221607](https://github.com/user-attachments/assets/fd0ed96b-635c-4cde-aa7b-d103de90b8d7)
 
 
 
